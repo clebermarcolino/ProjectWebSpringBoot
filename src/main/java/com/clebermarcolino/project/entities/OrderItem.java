@@ -1,7 +1,7 @@
 package com.clebermarcolino.project.entities;
 
 import com.clebermarcolino.project.entities.primarykey.OrderItemPK; // Importa a classe OrderItemPK, que representa a chave primária composta para esta entidade.
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore; // Importa a anotação Jackson para ignorar logicamente a propriedade na serialização JSON
 import jakarta.persistence.EmbeddedId; // Importa a anotação JPA para indicar que um atributo é uma chave primária embutida.
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
