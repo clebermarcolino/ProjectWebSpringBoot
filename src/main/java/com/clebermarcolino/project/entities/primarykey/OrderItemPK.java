@@ -11,12 +11,12 @@ import java.util.Objects;
 public class OrderItemPK implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
+    @ManyToOne // Anotação JPA que define um relacionamento Many-to-One com a entidade 'Order' (muitos itens de pedido para um pedido).
+    @JoinColumn(name = "order_id") // Anotação JPA que especifica a coluna na tabela 'tb_order_item' que será usada como chave estrangeira para referenciar a tabela de 'Order'.
     private Order order;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
+    @ManyToOne // Anotação JPA que define um relacionamento Many-to-One com a entidade 'Product' (muitos itens de pedido para um produto).
+    @JoinColumn(name = "product_id") // Anotação JPA que especifica a coluna na tabela 'tb_order_item' que será usada como chave estrangeira para referenciar a tabela de 'Product'.
     private Product product;
 
     public Order getOrder() {
