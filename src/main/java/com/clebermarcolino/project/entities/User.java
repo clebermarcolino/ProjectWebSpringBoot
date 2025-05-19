@@ -8,21 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
-@Table(name = "tb_user")
+@Entity // Anotação JPA que marca esta classe como uma entidade, representando uma tabela no banco de dados.
+@Table(name = "tb_user") // Anotação JPA que especifica o nome da tabela no banco de dados que será mapeada para esta entidade.
 public class User implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L; // Variável estática e final que armazena um identificador único para a classe serializada. É importante para controle de versão durante a desserialização.
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // Anotação JPA que marca o campo 'id' como a chave primária desta entidade.
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Anotação JPA que especifica a estratégia de geração de valores para a chave primária. GenerationType.IDENTITY indica que a geração será feita pela coluna de identidade do banco de dados (auto incremento).
     private Long id;
     private String name;
     private String email;
     private String phone;
     private String password;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "client")
+    @JsonIgnore // Anotação Jackson que indica que o atributo 'orders' deve ser ignorado durante a serialização para JSON. Isso evita loops infinitos em relacionamentos bidirecionais.
+    @OneToMany(mappedBy = "client") // Anotação JPA que define um relacionamento One-to-Many com a entidade 'Order' (um usuário pode ter vários pedidos). O atributo 'mappedBy' indica que o lado proprietário da relação está na classe 'Order' e é gerenciado pelo atributo 'client'.
     private List<Order> orders = new ArrayList<Order>();
 
     public User() {
