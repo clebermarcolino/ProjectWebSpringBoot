@@ -3,16 +3,16 @@ package com.clebermarcolino.project.config;
 import com.clebermarcolino.project.entities.*;
 import com.clebermarcolino.project.entities.enums.OrderStatus;
 import com.clebermarcolino.project.repositories.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import org.springframework.beans.factory.annotation.Autowired; // Importa a anotação Autowired do Spring para injeção de dependência.
+import org.springframework.boot.CommandLineRunner; // Importa a interface CommandLineRunner para executar código na inicialização da aplicação.
+import org.springframework.context.annotation.Configuration; // Importa a anotação Configuration do Spring para marcar esta classe como uma classe de configuração
+import org.springframework.context.annotation.Profile; // Importa a anotação Profile do Spring para ativar esta configuração apenas em um determinado perfil.
 
 import java.time.Instant;
 import java.util.Arrays;
 
-@Configuration
-@Profile("test")
+@Configuration // Marca esta classe como uma classe de configuração do Spring.
+@Profile("test") // Define que esta configuração será ativa apenas quando o perfil "test" estiver ativo na aplicação (geralmente usado para ambientes de teste).
 public class TestConfig implements CommandLineRunner {
 
     @Autowired
