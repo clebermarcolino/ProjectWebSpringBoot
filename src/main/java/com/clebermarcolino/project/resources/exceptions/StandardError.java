@@ -6,9 +6,9 @@ import java.io.Serializable;
 import java.time.Instant;
 
 public class StandardError implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L; // Variável estática e final que armazena um identificador único para a classe serializada. Essencial para o controle de versão durante a desserialização.
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT") // Anotação Jackson para formatar o atributo 'timeStamp' como uma string no formato ISO 8601 (UTC)
     private Instant timeStamp;
     private Integer status;
     private String error;
